@@ -1,0 +1,15 @@
+---
+- name: Postfix init&rem
+  gather_facts: No
+  hosts: localhost
+  tasks:
+  - name: Install postfix
+    apt:
+     name: postfix
+     state: latest
+    tags: init postfix
+  - name: remove postfix
+    apt:
+     name: postfix
+     state: absent
+    tags: drop postfix
