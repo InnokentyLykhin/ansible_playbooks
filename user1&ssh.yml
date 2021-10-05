@@ -1,0 +1,18 @@
+---
+# Запускаем плейбук командой ansible-playbook ~/ansible_playbooks/user1&ssh.yml --vault-password-file ~/.ansible_pass.txt
+- name: Make user1 & copy ssh key
+  hosts: 192.168.0.110
+  gather_facts: No
+  tasks:
+ 
+  - name: Add user to remote hosts
+    user: name=user1 
+    shell: /bin/bash
+    groups: sudoers
+    append: yes
+ 
+  - name: copy SSH keys to remote hosts
+      copy:
+        src: ~/ansible_playbooks/user1_key.pub
+        dest: /home/user1/.ssh/user1_key.pub
+        remote_src: yes
