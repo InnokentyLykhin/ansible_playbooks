@@ -1,5 +1,5 @@
 ---
-# Запускаем плейбук командой ansible-playbook ~/ansible_playbooks/user1&ssh.yml --vault-password-file ~/.ansible_pass.txt
+# Запускаем плейбук командой ansible-playbook ~/ansible_playbooks/user1&ssh.yml --vault-password-file ~/.vault_pass
 - name: Make user1 & copy ssh key
   hosts: 192.168.0.110
   gather_facts: No
